@@ -45,6 +45,17 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
+	public Cliente(Integer idCliente, @NotNull String nome, @NotNull String cpf, @NotNull String numeroDeTelefone,
+			@NotNull String gmail, List<Carro> listaCarro) {
+		super();
+		this.idCliente = idCliente;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.numeroDeTelefone = numeroDeTelefone;
+		this.gmail = gmail;
+		this.listaCarro = listaCarro;
+	}
+
 	public List<Carro> getListaCarro() {
 		return listaCarro;
 	}

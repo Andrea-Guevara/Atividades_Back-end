@@ -31,7 +31,7 @@ public class ClienteService {
 // transformar DTO para model
 	public Cliente DTOparaModel(Cliente cliente, ClienteDTO clienteDTO) {
 		cliente.setNome(clienteDTO.getNome());
-		cliente.setCpf(clienteDTO.getNome());
+		cliente.setCpf(clienteDTO.getCpf());
 		cliente.setNumeroDeTelefone(clienteDTO.getNumeroDeTelefone());
 		cliente.setGmail(clienteDTO.getGmail());
 
@@ -91,6 +91,7 @@ public class ClienteService {
 		for (Cliente cliente : listaClienteModel) {
 			ClienteDTO clienteDTO = new ClienteDTO();
 			modelParaDTO(cliente, clienteDTO);
+			listaClienteDTO.add(clienteDTO);
 
 		}
 		return listaClienteDTO;

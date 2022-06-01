@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.mail.MessagingException;
 
 import org.serratec.backend.java2.projetoBorracharia.dto.BorrachariaDTO;
+import org.serratec.backend.java2.projetoBorracharia.dto.RelatorioDTO;
 import org.serratec.backend.java2.projetoBorracharia.entidade.Borracharia;
 import org.serratec.backend.java2.projetoBorracharia.exception.BorrachariaException;
 import org.serratec.backend.java2.projetoBorracharia.exception.EmailException;
@@ -41,8 +42,7 @@ public class BorrachariaService {
 		borracharia.setValor(borrachariaDTO.getValor());
 		borracharia.setData(borrachariaDTO.getData());
 		borracharia.setTipoDeServico(borrachariaDTO.getTipoDeServico());
-
-		if (borrachariaDTO.getIdCarro() != null)
+          if (borrachariaDTO.getIdCarro() != null)
 			borracharia.setCarro(carroRepository.findById(borrachariaDTO.getIdCarro()).get());
 
 		return borracharia;
@@ -71,7 +71,7 @@ public class BorrachariaService {
 			modelParaDTO(borrachariaNoRegistro, borrachariaDTO);
 			return borrachariaDTO;
 		}
-		throw new BorrachariaException("Id nao encontrado");
+		throw new BorrachariaException("Id informado nao encontrado");
 
 	}
 
@@ -126,6 +126,11 @@ public class BorrachariaService {
 // deletar um objeto pelo id
 	public void delete(Integer idBorracharia) {
 		borrachariaRepository.deleteById(idBorracharia);
+	}
+
+//relatorio
+	public List<RelatorioDTO> relatorio() {
+		return borrachariaRepository.relatorio();
 	}
 
 }

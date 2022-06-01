@@ -6,8 +6,9 @@ public class ClienteDTO {
 	private String cpf;
 	private String numeroDeTelefone;
 	private String gmail;
-	
-	public ClienteDTO() {}
+
+	public ClienteDTO() {
+	}
 
 	public ClienteDTO(Integer idCliente, String nome, String cpf, String numeroDeTelefone, String gmail) {
 		super();
@@ -57,6 +58,5 @@ public class ClienteDTO {
 	public void setGmail(String gmail) {
 		this.gmail = gmail;
 	}
-	
-	
+
 }

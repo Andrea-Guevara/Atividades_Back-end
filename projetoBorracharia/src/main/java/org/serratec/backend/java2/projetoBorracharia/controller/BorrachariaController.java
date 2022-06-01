@@ -5,6 +5,7 @@ import java.util.List;
 import javax.mail.MessagingException;
 
 import org.serratec.backend.java2.projetoBorracharia.dto.BorrachariaDTO;
+import org.serratec.backend.java2.projetoBorracharia.dto.RelatorioDTO;
 import org.serratec.backend.java2.projetoBorracharia.exception.BorrachariaException;
 import org.serratec.backend.java2.projetoBorracharia.exception.EmailException;
 import org.serratec.backend.java2.projetoBorracharia.service.BorrachariaService;
@@ -47,6 +48,11 @@ public class BorrachariaController {
 	@GetMapping("/lista")
 	public ResponseEntity<List<BorrachariaDTO>> listaTodos() {
 		return ResponseEntity.ok(borrachariaService.listarTodos());
+	}
+
+	@GetMapping("/relatorio")
+	public ResponseEntity<List<RelatorioDTO>> relatorio() {
+		return ResponseEntity.ok(borrachariaService.relatorio());
 	}
 
 	@PutMapping("/atualizar/{idBorracharia}")
